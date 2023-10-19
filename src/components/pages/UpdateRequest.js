@@ -45,7 +45,7 @@ const handleSubmit = (event) => {
         firstName: data.get('firstName'),
         lastName: data.get('lastName'),
         email:data.get('email'),
-        aptNumber:data.get('aptNumber')
+        aptNumber:data.get('aptNumber'),
         description:data.get('description'),
         createdAt:data.get('createdAt')
     };

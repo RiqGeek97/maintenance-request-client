@@ -2,7 +2,7 @@ import { useEffect, useState} from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {useNavigate } from "react-router-dom";
-import * as maintenanceRequestService from '../services/RequestService';
+import * as RequestService from '../components/services/RequestService';
 import {
     IconButton,
     Table,
@@ -17,17 +17,28 @@ export const MaintenanceRequestTable = () => {
     const navigate = useNavigate();
 
     useEffect(()=> {
-        maintenanceRequestService.getAllMaintenanceRequests()
+        RequestService.getAllMaintenanceRequests()
         .then(res => {
             setMaintenanceRequest(res.data);
         })
     }, [])
+
+    function requestDataFromApi(){
+        RequestService.getAllMaintenanceRequests()
+        .then(res => {
+            setMaintenanceRequest(res.data);
+        })
+    }
+
+
     const goToUpdate = (id) => {
-        navigate(`/${id}`);
+        navigate(`/update/${id}`);
     }
 
     const deleteMaintenanceRequest = (id) => {
-        console.log(id);
+        RequestService.deleteMaintenanceRequest(id).then(() =>{
+            requestDataFromApi();
+        })
     }
     
 

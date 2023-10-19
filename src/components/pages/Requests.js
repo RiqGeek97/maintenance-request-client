@@ -1,4 +1,4 @@
-import {MaintenanceRequestTable} from "../components/RequestTable";
+import {MaintenanceRequestTable} from '../RequestTable';
 import Button from '@mui/material/Button';
 import {useNavigate } from "react-router-dom";
 
@@ -12,7 +12,7 @@ export const MaintenanceRequest =() => {
     return(
         <>
             <Button variant="outlined" onClick={e => addUser()}>Add User</Button>
-            <RequestTable />
+            <MaintenanceRequestTable />
         </>
     )
 }
